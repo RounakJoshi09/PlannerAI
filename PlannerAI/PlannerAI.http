@@ -1,0 +1,6 @@
+@PlannerAI_HostAddress = http://localhost:5186
+
+GET {{PlannerAI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
