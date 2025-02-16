@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PlannerAI.Entities.Models;
 
 public class RepositoryContext : DbContext
 {

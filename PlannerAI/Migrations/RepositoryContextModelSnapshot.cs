@@ -21,7 +21,7 @@ namespace PlannerAI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Company", b =>
+            modelBuilder.Entity("PlannerAI.Entities.Models.Company", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace PlannerAI.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("Employee", b =>
+            modelBuilder.Entity("PlannerAI.Entities.Models.Employee", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,9 +76,9 @@ namespace PlannerAI.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Employee", b =>
+            modelBuilder.Entity("PlannerAI.Entities.Models.Employee", b =>
                 {
-                    b.HasOne("Company", "Company")
+                    b.HasOne("PlannerAI.Entities.Models.Company", "Company")
                         .WithMany("Employees")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -87,7 +87,7 @@ namespace PlannerAI.Migrations
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("Company", b =>
+            modelBuilder.Entity("PlannerAI.Entities.Models.Company", b =>
                 {
                     b.Navigation("Employees");
                 });
