@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PlannerAI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20250216133111_InitialCreate")]
+    [Migration("20250216151803_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
