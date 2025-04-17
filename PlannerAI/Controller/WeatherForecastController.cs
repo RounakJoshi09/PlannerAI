@@ -8,11 +8,6 @@ using Contracts;
 [ApiController]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILoggerManager _logger;
 
     public WeatherForecastController(ILoggerManager logger)

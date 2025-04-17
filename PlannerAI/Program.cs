@@ -43,36 +43,14 @@ app.Use(async (context, next) =>
     await next.Invoke();
 });
 
-// app.Map("/usingbranch", builder =>
-// {
-//     builder.Use(async (context, next) =>
-//     {
-//         context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
-//         await next.Invoke();
-//     });
-
-// });
-
-// app.MapGet("/weatherforecast", () =>
-// {
-//     var forecast = Enumerable.Range(1, 5).Select(index =>
-//         new WeatherForecast
-//         (
-//             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-//             Random.Shared.Next(-20, 55),
-//             summaries[Random.Shared.Next(summaries.Length)]
-//         ))
-//         .ToArray();
-//     return forecast;
-// })
-// .WithName("GetWeatherForecast")
-// .WithOpenApi();
+app.Use(async (context, next) =>
+{
+    Console.WriteLine("Middleware 1: Before the next middleware.");
+    await next.Invoke();
+    Console.WriteLine("Middleware 1: After the next middleware.");
+});
 
 app.MapControllers();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
