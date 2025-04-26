@@ -12,5 +12,7 @@ namespace Repository
         }
 
         public IEnumerable<Company> GetAllCompanies(bool trackChanges) => FindAll(trackChanges);
+
+        public Company? GetCompany(Guid Id, bool trackChanges) => FindByCondition(x => x.Id == Id, trackChanges).FirstOrDefault();
     }
 }

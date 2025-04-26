@@ -1,8 +1,9 @@
 ﻿using PlannerAI.Entities.Models;
+using Shared.DataTransferObjects;
 
 namespace Service.Contracts;
 
 public interface ICompanyService
 {
-    IEnumerable<Company> GetAllCompanies();
+    IEnumerable<CompanyDTO> GetAllCompanies(bool trackChanges);
 }

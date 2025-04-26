@@ -14,15 +14,8 @@ namespace PlannerAI.Presentation.Controllers
         [HttpGet]
         public IActionResult GetCompanies()
         {
-            try
-            {
-                var companies = _serviceManager.CompanyService.GetAllCompanies();
-                return Ok(companies);
-            }
-            catch (System.Exception)
-            {
-                return StatusCode(500, Messages.somethingWentWrong);
-            }
+            var companies = _serviceManager.CompanyService.GetAllCompanies(trackChanges: false);
+            return Ok(companies);
         }
     }
 
