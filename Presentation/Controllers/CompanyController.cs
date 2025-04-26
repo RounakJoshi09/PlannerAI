@@ -9,7 +9,7 @@ namespace PlannerAI.Presentation.Controllers
     {
         private readonly IServiceManager _serviceManager;
 
-        CompanyController(IServiceManager serviceManager) => _serviceManager = serviceManager;
+        public CompanyController(IServiceManager serviceManager) => _serviceManager = serviceManager;
 
         [HttpGet]
         public IActionResult GetCompanies()

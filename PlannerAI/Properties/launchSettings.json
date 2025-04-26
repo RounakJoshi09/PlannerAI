@@ -3,6 +3,7 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "sqlConnection": "Server=hp; Database=PlannerAI; Integrated Security=True;Encrypt=False; MultipleActiveResultSets=true; TrustServerCertificate=True;",
     "iisExpress": {
       "applicationUrl": "http://localhost:11913",
       "sslPort": 44357
@@ -13,6 +14,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
+      "sqlConnection": "Server=hp; Database=PlannerAI; Integrated Security=True;Encrypt=False; MultipleActiveResultSets=true; TrustServerCertificate=True;",
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5186",
       "environmentVariables": {
@@ -22,6 +24,7 @@
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      "sqlConnection": "Server=hp; Database=PlannerAI; Integrated Security=True;Encrypt=False; MultipleActiveResultSets=true; TrustServerCertificate=True;",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7049;http://localhost:5186",
@@ -32,6 +35,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "sqlConnection": "Server=hp; Database=PlannerAI; Integrated Security=True; Encrypt=False; MultipleActiveResultSets=true; TrustServerCertificate=True;",
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
