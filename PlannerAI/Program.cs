@@ -16,6 +16,7 @@ builder.Services.AddControllers();  // Add this line
 builder.Services.ConfigureCORS();
 builder.Services.ConfigureIISServerOptions();
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureRepositoryManager();
 
 var app = builder.Build();
 

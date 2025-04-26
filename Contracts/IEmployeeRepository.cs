@@ -1,4 +1,4 @@
 namespace Contracts
 {
-    interface IEmployeeRepository { }
+    public interface IEmployeeRepository { }
 }
