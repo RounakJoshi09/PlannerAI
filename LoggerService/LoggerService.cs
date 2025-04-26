@@ -26,7 +26,7 @@ public class LoggerManager : ILoggerManager
         logger.Debug(message);
     }
 
-    public void LogError(string message)
+    public void LogError(object message)
     {
         logger.Error(message);
     }

@@ -1,6 +1,8 @@
-﻿namespace Service.Contracts;
+﻿using PlannerAI.Entities.Models;
+
+namespace Service.Contracts;
 
 public interface ICompanyService
 {
-
+    IEnumerable<Company> GetAllCompanies();
 }

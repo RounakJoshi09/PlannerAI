@@ -10,5 +10,7 @@ namespace Repository
         {
             _repositoryContext = repositoryContext;
         }
+
+        public IEnumerable<Company> GetAllCompanies(bool trackChanges) => FindAll(trackChanges);
     }
 }
