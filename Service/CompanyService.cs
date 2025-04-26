@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using Contracts;
+using Entities.Exceptions;
 using PlannerAI.Entities.Models;
 using Service.Contracts;
 using Shared.DataTransferObjects;
@@ -29,6 +30,26 @@ internal sealed class CompanyService : ICompanyService
             return companiesDTO;
         }
         catch (Exception ex)
+        {
+            _loggerManager.LogError($"Error while getting Companies ${ex.Message}");
+            _loggerManager.LogError(ex);
+            throw;
+        }
+    }
+
+    public CompanyDTO GetCompany(Guid Id)
+    {
+        try
+        {
+            var company = _repositoryManager.Company.GetCompany(Id, trackChanges: false);
+            if (company == null)
+            {
+                throw new CompanyNotFound(Id);
+            }
+            var companyDTO = _mapper.Map<CompanyDTO>(company);
+            return companyDTO;
+        }
+        catch (System.Exception ex)
         {
             _loggerManager.LogError($"Error while getting Companies ${ex.Message}");
             _loggerManager.LogError(ex);

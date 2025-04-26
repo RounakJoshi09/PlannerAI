@@ -2,6 +2,7 @@ using System.Net;
 using Contracts;
 using Entities.ErrorModel;
 using Microsoft.AspNetCore.Diagnostics;
+using PlannerAI.Entities;
 
 public static class ExceptionMiddlewareExtension
 {
@@ -12,18 +13,23 @@ public static class ExceptionMiddlewareExtension
         {
             appError.Run(async context =>
             {
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "application/json";
 
                 var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
 
                 if (contextFeature != null)
                 {
+                    context.Response.StatusCode = contextFeature.Error switch
+                    {
+                        NotFoundException => (int)HttpStatusCode.NotFound,
+                        _ => (int)HttpStatusCode.InternalServerError
+                    };
+
                     loggerManager.LogError($"ERROR : {contextFeature.Error}");
                     await context.Response.WriteAsync(new ErrorDetails
                     {
                         StatusCode = context.Response.StatusCode,
-                        ErrorMessage = "Internal Server Error"
+                        ErrorMessage = contextFeature.Error.Message
                     }.ToString());
                 }
             });

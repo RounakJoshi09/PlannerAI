@@ -17,6 +17,15 @@ namespace PlannerAI.Presentation.Controllers
             var companies = _serviceManager.CompanyService.GetAllCompanies(trackChanges: false);
             return Ok(companies);
         }
+
+
+        [Route("{companyId:guid}")]
+        [HttpGet]
+        public IActionResult GetCompany(Guid companyId)
+        {
+            var company = _serviceManager.CompanyService.GetCompany(companyId);
+            return Ok(company);
+        }
     }
 
 }
